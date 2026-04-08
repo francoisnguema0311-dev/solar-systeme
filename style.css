@@ -233,6 +233,55 @@ button.secondary {
   inset: 0;
 }
 
+.focus-info {
+  position: absolute;
+  z-index: 4;
+  width: min(320px, calc(100% - 32px));
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: rgba(7, 17, 31, 0.82);
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.focus-info.is-hidden {
+  display: none;
+}
+
+.focus-info h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.focus-info p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.focus-info dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 10px;
+  font-size: 0.82rem;
+}
+
+.focus-info dt {
+  color: var(--accent-cool);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.focus-info dd {
+  margin: 0;
+  color: var(--text);
+}
+
 .status-overlay {
   position: absolute;
   inset: 24px 24px auto auto;
@@ -245,6 +294,28 @@ button.secondary {
   color: var(--text);
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
+}
+
+.info-panel {
+  display: none;
+}
+
+.floating-action {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 4;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(7, 17, 31, 0.84);
+  color: var(--text);
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+}
+
+.floating-action.is-hidden {
+  display: none;
 }
 
 .status-overlay.is-hidden {

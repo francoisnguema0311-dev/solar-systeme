@@ -32,6 +32,14 @@
         <button id="resetViewButton" type="button" class="secondary">Vue systeme</button>
       </section>
 
+      <section class="detail-block">
+        <h3>Navigation</h3>
+        <p>
+          Clique sur une planete pour la selectionner. Clique dans le vide ou sur "Vue systeme"
+          pour la deselectionner. Glisse pour orbiter, et utilise la molette pour zoomer.
+        </p>
+      </section>
+
       <section class="toggle-grid">
         <label class="toggle">
           <input id="orbitToggle" type="checkbox" checked>
@@ -47,7 +55,7 @@
         </label>
       </section>
 
-      <section class="focus-card">
+      <section class="focus-card info-panel">
         <p class="focus-kicker">Selection actuelle</p>
         <h2 id="selectedName">Systeme solaire</h2>
         <p id="selectedTagline" class="tagline">
@@ -55,7 +63,7 @@
         </p>
       </section>
 
-      <section class="facts">
+      <section class="facts info-panel">
         <div class="fact">
           <span class="fact-label">Type</span>
           <strong id="factType">Etoile et planetes</strong>
@@ -74,7 +82,7 @@
         </div>
       </section>
 
-      <section class="detail-block">
+      <section class="detail-block info-panel">
         <h3>Surface et atmosphere</h3>
         <p id="detailSurface">
           La scene presente des mondes rocheux, gazeux et glaces avec leurs principales
@@ -82,7 +90,7 @@
         </p>
       </section>
 
-      <section class="detail-block">
+      <section class="detail-block info-panel">
         <h3>Lunes visibles</h3>
         <ul id="moonList" class="moon-list">
           <li>Aucune selection pour le moment</li>
@@ -97,16 +105,19 @@
 
     <main class="viewport">
       <div id="sceneContainer" class="scene-container"></div>
+      <div id="focusInfo" class="focus-info is-hidden" aria-live="polite"></div>
+      <button id="clearSelectionButton" class="floating-action is-hidden" type="button">Deselectionner</button>
       <div id="statusOverlay" class="status-overlay">Chargement de la scene 3D...</div>
       <div class="hud">
         <div class="hud-chip">Glisser pour orbiter</div>
         <div class="hud-chip">Molette pour zoomer</div>
-        <div class="hud-chip">Cliquer pour se focaliser</div>
+        <div class="hud-chip">Cliquer pour selectionner</div>
+        <div class="hud-chip">Cliquer dans le vide pour deselectionner</div>
       </div>
       <div id="labelLayer" class="label-layer" aria-hidden="true"></div>
     </main>
   </div>
 
-  <script src="offline.js"></script>
+  <script type="module" src="app3d.js"></script>
 </body>
 </html>
