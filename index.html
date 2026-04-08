@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas du Systeme Solaire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <p class="eyebrow">Exploration 3D</p>
+      <h1>Atlas du Systeme Solaire</h1>
+      <p class="intro">
+        Clique sur une planete pour t'en rapprocher, orbiter autour d'elle et voir ses lunes.
+        Tu peux aussi revenir a la vue globale du systeme a tout moment.
+      </p>
+
+      <section class="control-block">
+        <div class="label-row">
+          <label for="timeScale">Temps orbital</label>
+          <span id="timeScaleLabel">x12</span>
+        </div>
+        <input id="timeScale" type="range" min="1" max="40" value="12">
+      </section>
+
+      <section class="button-row">
+        <button id="pauseButton" type="button">Pause</button>
+        <button id="resetViewButton" type="button" class="secondary">Vue systeme</button>
+      </section>
+
+      <section class="toggle-grid">
+        <label class="toggle">
+          <input id="orbitToggle" type="checkbox" checked>
+          <span>Orbites</span>
+        </label>
+        <label class="toggle">
+          <input id="labelToggle" type="checkbox" checked>
+          <span>Noms</span>
+        </label>
+        <label class="toggle">
+          <input id="asteroidToggle" type="checkbox" checked>
+          <span>Ceinture d'asteroides</span>
+        </label>
+      </section>
+
+      <section class="focus-card">
+        <p class="focus-kicker">Selection actuelle</p>
+        <h2 id="selectedName">Systeme solaire</h2>
+        <p id="selectedTagline" class="tagline">
+          Survole l'espace et clique sur un monde pour le visiter.
+        </p>
+      </section>
+
+      <section class="facts">
+        <div class="fact">
+          <span class="fact-label">Type</span>
+          <strong id="factType">Etoile et planetes</strong>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Diametre</span>
+          <strong id="factDiameter">Variable</strong>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Rayon orbital</span>
+          <strong id="factOrbit">Jusqu'a Neptune</strong>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Composition</span>
+          <strong id="factComposition">Roche, gaz, glace et plasma</strong>
+        </div>
+      </section>
+
+      <section class="detail-block">
+        <h3>Surface et atmosphere</h3>
+        <p id="detailSurface">
+          La scene presente des mondes rocheux, gazeux et glaces avec leurs principales
+          caracteristiques resumees ici.
+        </p>
+      </section>
+
+      <section class="detail-block">
+        <h3>Lunes visibles</h3>
+        <ul id="moonList" class="moon-list">
+          <li>Aucune selection pour le moment</li>
+        </ul>
+      </section>
+
+      <section class="detail-block">
+        <h3>Planetes</h3>
+        <ul id="planetList" class="planet-list"></ul>
+      </section>
+    </aside>
+
+    <main class="viewport">
+      <div id="sceneContainer" class="scene-container"></div>
+      <div id="statusOverlay" class="status-overlay">Chargement de la scene 3D...</div>
+      <div class="hud">
+        <div class="hud-chip">Glisser pour orbiter</div>
+        <div class="hud-chip">Molette pour zoomer</div>
+        <div class="hud-chip">Cliquer pour se focaliser</div>
+      </div>
+      <div id="labelLayer" class="label-layer" aria-hidden="true"></div>
+    </main>
+  </div>
+
+  <script src="offline.js"></script>
+</body>
+</html>
